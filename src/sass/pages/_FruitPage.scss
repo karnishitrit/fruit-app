@@ -1,0 +1,10 @@
+.fruit-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 7rem;
+
+  &__drop-down {
+    position: relative;
+  }
+}

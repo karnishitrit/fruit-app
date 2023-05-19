@@ -1,3 +1,15 @@
+:root {
+  --white: #fff;
+  --black: #000000;
+  --shadow-color: rgba(149, 157, 165, 0.2);
+  --light-gray: rgba(213, 213, 213, 0.757);
+  --gray: rgb(139, 139, 139);
+  --blue: rgb(115, 146, 165);
+  --light-blue: rgb(240, 243, 245);
+  --blue-transparent: rgba(0, 157, 224, 0.1);
+  --dark-blue: rgb(69, 82, 219);
+}
+
 *,
 *::after,
 *::before {
@@ -30,6 +42,52 @@ body {
   height: 100%;
   width: 100vw;
   max-width: 100%;
+  position: relative;
+}
+
+.drop-down {
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  box-shadow: var(--shadow-color) 0px 8px 24px;
+  border-radius: 1rem;
+  color: var(--blue);
+  font-size: 2rem;
+}
+.drop-down__title {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drop-down-item {
+  background-color: var(--light-blue);
+  color: var(--gray);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.drop-down-item::before {
+  content: "-";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -0.5px; /* Half the height of the line */
+  border-top: 1px solid gray;
+  z-index: -1;
+}
+
+.fruit-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 7rem;
+}
+.fruit-page__drop-down {
   position: relative;
 }
 
