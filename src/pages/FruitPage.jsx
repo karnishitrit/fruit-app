@@ -1,5 +1,6 @@
 import DropDown from "../components/DropDown";
 import FruitItemsList from "../components/FruitItemsList";
+import Summary from "../components/Summary";
 
 function FruitPage() {
   const fruits = [
@@ -20,6 +21,8 @@ function FruitPage() {
         className="fruit-page__drop-down"
       />
       <FruitItemsList />
+      <span className="fruit-page__space"></span>
+      <Summary />
     </div>
   );
 }
