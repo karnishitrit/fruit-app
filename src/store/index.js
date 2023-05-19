@@ -15,4 +15,4 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchFruitsQuery } from "./api/fruitsApi";
+export { useFetchFruitsQuery, useSubmitMutation } from "./api/fruitsApi";

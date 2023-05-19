@@ -13,4 +13,14 @@
     height: 1px;
     background-color: var(--blue);
   }
+
+  &__submit {
+    width: max-content;
+    padding: 1rem 3rem;
+    background-color: var(--blue);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--white);
+    font-weight: bold;
+  }
 }

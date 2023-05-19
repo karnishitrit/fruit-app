@@ -15,9 +15,21 @@ const FruitsApi = createApi({
           };
         },
       }),
+      submit: builder.mutation({
+        query: (values) => {
+          return {
+            url: "/products/",
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: values,
+          };
+        },
+      }),
     };
   },
 });
-export const { useFetchFruitsQuery } = FruitsApi;
+export const { useFetchFruitsQuery, useSubmitMutation } = FruitsApi;
 
 export { FruitsApi };
