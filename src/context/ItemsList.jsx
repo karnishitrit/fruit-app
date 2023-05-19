@@ -38,12 +38,18 @@ const ItemsListProvider = ({ children }) => {
     }
   };
 
+  // calculate the total price of all the items list
+  const totalPrice = () => {
+    return ItemsList.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
+
   // Define the context value
   const contextValue = {
     ItemsList,
     addToItemsList,
     updateInItemsList,
     removeFromItemsList,
+    totalPrice,
   };
 
   // Provide the context value to the children components
