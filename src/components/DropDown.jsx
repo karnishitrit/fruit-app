@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useFetchFruitsQuery } from "../store";
 
 import { ItemsListContext } from "../context/ItemsList";
@@ -36,13 +36,22 @@ function DropDown({ values, title = "select an option", className = "" }) {
 
   UseAddItemToList(selectedItem);
 
+  // Extract this function from the ItemsListContext
+  const { ItemsList } = useContext(ItemsListContext);
+
+  // changing the dropdown options if element is in ItemsList
+  useEffect(() => {
+    setOptions((prev) =>
+      values.filter(
+        (item1) => !ItemsList.some((item2) => item1.toLowerCase() === item2.id)
+      )
+    );
+  }, [values, ItemsList]);
+
   // closes the dropdowm by clicking and delete the option that selected
   const handleSelect = (item) => {
     // closing the dropdown
     setOpen((prev) => !prev);
-
-    // delete clicked item from the dropdown
-    setOptions((prev) => prev.filter((prevItem) => prevItem !== item));
 
     // change the selected item to the clicked item
     setSelectedItem(item);
