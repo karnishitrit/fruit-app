@@ -1,10 +1,11 @@
 import FruitItem from "./FruitItem";
 
+import { useContext } from "react";
+import { ItemsListContext } from "../context/ItemsList";
+
 function FruitItemsList() {
-  const ItemsList = [
-    { color: "Red", id: "apple", name: "Apple", price: 3, stock: 12 },
-    { color: "Red", id: "apple", name: "Apple", price: 3, stock: 12 },
-  ];
+  const { ItemsList } = useContext(ItemsListContext);
+
   return (
     <div className="fruit-items-list">
       {ItemsList.map((item) => (
