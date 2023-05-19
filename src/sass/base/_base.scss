@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+html {
+  font-family: $font-primary;
+  font-size: 62.5%; //10px
+  user-select: none; // canceling the text line
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+}

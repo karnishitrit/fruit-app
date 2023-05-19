@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover, a:focus, a:active, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-family: Segoe UI;
+  font-size: 62.5%;
+  user-select: none;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+}
+
+/*# sourceMappingURL=style.css.map */
