@@ -1,22 +1,7 @@
-import { useFetchFruitsQuery } from "../store";
 import DropDown from "../components/DropDown";
 import FruitItemsList from "../components/FruitItemsList";
 
 function FruitPage() {
-  const { data, isError, isLoading } = useFetchFruitsQuery("apple");
-
-  if (isError) {
-    return <div> {isError}</div>;
-  }
-
-  if (isLoading) {
-    return (
-      <div className="menu">
-        <div> {isError}</div>;
-      </div>
-    );
-  }
-
   const fruits = [
     "Apple",
     "Carrot",
@@ -27,7 +12,6 @@ function FruitPage() {
     "Salad",
   ];
 
-  console.log(data);
   return (
     <div className="fruit-page">
       <DropDown
