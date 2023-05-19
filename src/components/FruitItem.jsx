@@ -9,11 +9,18 @@ function FruitItem({ item }) {
   const trackFillColor = "#b6b2b2"; // Define the desired fiiled track color
   const thumbColor = "#fff"; // Define the desired thumb color
 
-  const { removeFromItemsList } = useContext(ItemsListContext);
+  const { removeFromItemsList, updateInItemsList } =
+    useContext(ItemsListContext);
 
   // deleting item from the itemsList
   const handleDeleteItem = () => {
     removeFromItemsList(item);
+  };
+
+  // changing the amount in the itemsList while slider changes
+  const handleSliderChange = (e) => {
+    const value = e.target.value;
+    updateInItemsList(item, value);
   };
 
   return (
@@ -33,7 +40,9 @@ function FruitItem({ item }) {
       <div className="fruit-item__quantity">
         select quantity:
         <span className="fruit-item__quantity--amount">
-          <span className="fruit-item__quantity--amount--number">0</span>
+          <span className="fruit-item__quantity--amount--number">
+            {item.quantity}
+          </span>
           KG
         </span>
       </div>
@@ -43,6 +52,7 @@ function FruitItem({ item }) {
         defaultValue={0}
         valueLabelDisplay="auto"
         max={item.stock}
+        onChange={(e) => handleSliderChange(e)}
         sx={{
           "& .MuiSlider-track": {
             backgroundColor: trackFillColor,
@@ -59,7 +69,9 @@ function FruitItem({ item }) {
       />
       <div className="fruit-item__price">
         Price:
-        <span className="fruit-item__price--number">${item.price}</span>
+        <span className="fruit-item__price--number">
+          ${item.price * item.quantity}
+        </span>
       </div>
     </div>
   );

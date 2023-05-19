@@ -26,10 +26,23 @@ const ItemsListProvider = ({ children }) => {
     );
   };
 
+  const updateInItemsList = (item, quantity) => {
+    if (ItemsList.find((itemInList) => itemInList.id === item.id)) {
+      setItemsList((prevList) =>
+        prevList.map((itemInList) =>
+          itemInList.id === item.id
+            ? { ...itemInList, quantity: quantity }
+            : itemInList
+        )
+      );
+    }
+  };
+
   // Define the context value
   const contextValue = {
     ItemsList,
     addToItemsList,
+    updateInItemsList,
     removeFromItemsList,
   };
 
