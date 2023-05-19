@@ -1,6 +1,6 @@
 import { useFetchFruitsQuery } from "../store";
 import DropDown from "../components/DropDown";
-import FruitItem from "../components/FruitItem";
+import FruitItemsList from "../components/FruitItemsList";
 
 function FruitPage() {
   const { data, isError, isLoading } = useFetchFruitsQuery("apple");
@@ -35,7 +35,7 @@ function FruitPage() {
         title="Select to add item to basket"
         className="fruit-page__drop-down"
       />
-      <FruitItem item={data} />
+      <FruitItemsList />
     </div>
   );
 }
