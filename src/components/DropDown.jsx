@@ -36,9 +36,6 @@ function DropDown({ values, title = "select an option", className = "" }) {
 
   UseAddItemToList(selectedItem);
 
-  const { ItemsList } = useContext(ItemsListContext);
-  console.log(ItemsList);
-
   // closes the dropdowm by clicking and delete the option that selected
   const handleSelect = (item) => {
     // closing the dropdown

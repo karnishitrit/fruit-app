@@ -1,14 +1,19 @@
-import React from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Slider from "@mui/material/Slider";
+
+import { useContext } from "react";
+import { ItemsListContext } from "../context/ItemsList";
 
 function FruitItem({ item }) {
   const trackColor = "#c6c0c0"; // Define the desired track color
   const trackFillColor = "#b6b2b2"; // Define the desired fiiled track color
   const thumbColor = "#fff"; // Define the desired thumb color
 
+  const { removeFromItemsList } = useContext(ItemsListContext);
+
+  // deleting item from the itemsList
   const handleDeleteItem = () => {
-    //
+    removeFromItemsList(item);
   };
 
   return (
