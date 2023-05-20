@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { useFetchFruitsQuery } from "../store";
+// import { useFetchFruitsQuery } from "../store";
 
 import { ItemsListContext } from "../context/ItemsList";
 
@@ -8,34 +8,17 @@ import DropDownItem from "./DropDownItem";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import classNames from "classnames";
 
-// // fetcing the data for the seleted item and adding it to the context
-// function UseAddItemToList(selectedItem) {
-//   const { data, isError, isLoading } = useFetchFruitsQuery(
-//     selectedItem.toLowerCase()
-//   );
-
-//   // Extract this function from the ItemsListContext
-//   const { addToItemsList } = useContext(ItemsListContext);
-
-//   if (isError) {
-//     return <div> {isError}</div>;
-//   }
-
-//   if (isLoading) {
-//     return <div>loading...</div>;
-//   }
-
-//   // adding the item to items list
-//   addToItemsList(data, 0);
-// }
-
-function DropDown({ values, title = "select an option", className = "" }) {
+function DropDown({
+  values,
+  title = "select an option",
+  className = "",
+  setSelectedItem,
+}) {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState(values);
-  const [selectedItem, setSelectedItem] = useState("");
 
   // Extract this function from the ItemsListContext
-  const { ItemsList, addToItemsList } = useContext(ItemsListContext);
+  const { ItemsList } = useContext(ItemsListContext);
 
   // changing the dropdown options if element is in ItemsList
   useEffect(() => {
@@ -45,19 +28,6 @@ function DropDown({ values, title = "select an option", className = "" }) {
       )
     );
   }, [values, ItemsList]);
-
-  // fetching data for the selected option
-  const { data, isError, isLoading } = useFetchFruitsQuery(
-    selectedItem.toLowerCase()
-  );
-
-  // adding the item to the itemslist after the data is loading
-  useEffect(() => {
-    if (!isError && !isLoading) {
-      addToItemsList(data, 0);
-      if (data.stock === 0) alert(`Sorry, ${data.name} not in stock`);
-    }
-  }, [data]);
 
   // closes the dropdowm by clicking and delete the option that selected
   const handleSelect = (item) => {
